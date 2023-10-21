@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Morozov</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <style>
+    /* Стили для разделов */
+    .section {
+      height: 100vh; /* Высота каждого раздела на весь экран */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 24px;
+      
+      /* Фиксация изображения фона */
+      background-image: url('intro4.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+    }
+    
+    /* Стили для кнопок прокрутки */
+    .button {
+      padding: 10px 20px;
+      font-size: 18px;
+      border: none;
+      border-radius: 5px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+    
+    /* Стили для кнопки "Наверх" */
+    .scroll-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: none;
+      padding: 12px;
+      background-color: #7e7e80;
+      color: #28cbe7;
+      border-radius: 10%;
+      cursor: pointer;
+    }
+    
+    /* Стили для текста разделов */
+    .section h1 {
+      font-size: 32px;
+      margin-bottom: 18px;
+      color: #22c4a1;
+    }
+    
+    .section p {
+      margin-bottom: 20px;
+      color: #22c4a1;
+    }
+    
+    /* Стили для ссылок навигации */
+    .nav-link {
+      margin-right: 10px;
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .nav-link:hover {
+      color: #22c4a1;
+    }
+
+    /* Добавьте этот стиль для кнопок */
+    .button-container {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      z-index: 1000; /* Убедитесь, что кнопки всегда находятся на верхнем уровне */
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      // Показать/скрыть кнопку "Наверх" при прокрутке
+      $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+          $('.scroll-to-top').fadeIn();
+        } else {
+          $('.scroll-to-top').fadeOut();
+        }
+      });
+      
+      // Плавная прокрутка страницы к началу
+      $('.scroll-to-top').click(function() {
+        $('html, body').animate({
+          scrollTop: 0
+        }, 1000); // Продолжительность анимации в миллисекундах (здесь 1000 мс = 1 секунда)
+        return false;
+      });
+    });
+    
+    function scrollToSection(sectionNumber) {
+      const section = $(`#section${sectionNumber}`);
+      $('html, body').animate({
+        scrollTop: section.offset().top
+      }, 1000); //
+
+html
+      // Продолжительность анимации в миллисекундах (здесь 1000 мс = 1 секунда)
+    }
+  </script>
+</head>
+<body>
+  <!-- Оберните кнопки в контейнер -->
+  <div class="button-container">
+    <button class="button" onclick="scrollToSection(1)">Раздел 1</button>
+    <button class="button" onclick="scrollToSection(2)">Раздел 2</button>
+    <button class="button" onclick="scrollToSection(3)">Раздел 3</button>
+  </div>
+
+  <div id="section1" class="section">
+    <h1>Раздел 1</h1>
+    <p>Содержимое раздела 1.</p>
+  </div>
+
+  <div id="section2" class="section">
+    <h1>Раздел 2</h1>
+    <p>Содержимое раздела 2.</p>
+  </div>
+
+  <div id="section3" class="section">
+    <h1>Раздел 3</h1>
+    <p>Содержимое раздела 3.</p>
+  </div>
+  
+  <a href="#" class="scroll-to-top">Наверх</a>
+</body>
+git clone https://github.com/maxlmka/maxlmka.github.io
+cd maxlmka.github.io
+echo "Hello World" > index.html
+</html>
